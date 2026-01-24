@@ -1,0 +1,91 @@
+<section class="space-y-5">
+  <div class="flex items-center gap-3">
+    <h3 class="text-2xl font-semibold text-slate-900">Projects</h3>
+    <span class="h-1 w-10 rounded-full bg-[var(--brand-600)]"></span>
+  </div>
+
+  <div class="grid items-start gap-4 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)]">
+    <div class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-4 lg:sticky lg:top-6 lg:self-start">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-600)]">
+        Project Rail
+      </p>
+      <div class="mt-4 rounded-2xl border border-dashed border-[var(--brand-200)] bg-[var(--brand-50)] p-3">
+        <ul class="space-y-3">
+          @for (project of projects; track project.name) {
+            <li class="flex items-start gap-2">
+              <button
+                type="button"
+                (click)="setActive(project)"
+                class="group flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left text-sm transition"
+                [class]="
+                  project.name === activeProject().name
+                    ? 'border-[var(--brand-600)] bg-white text-[var(--brand-700)] shadow-sm'
+                    : 'border-transparent bg-white/80 text-slate-600 hover:border-[var(--brand-200)] hover:text-slate-900'
+                "
+              >
+                <span class="flex-1">
+                  <span class="block font-semibold">{{ project.name }}</span>
+                </span>
+              </button>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <article class="relative overflow-hidden rounded-2xl border border-[var(--brand-200)] bg-white/90 p-0">
+      <div class="bg-linear-to-r from-[var(--brand-700)] via-[var(--brand-600)] to-[var(--brand-500)] px-6 py-5 text-white">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-white/70">Selected Project</p>
+            <h4 class="mt-2 text-2xl font-semibold">{{ activeProject().name }}</h4>
+            <p class="mt-2 text-sm text-white/80">{{ activeProject().summary }}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+              {{ activeProject().year }}
+            </span>
+            @if (activeProject().youtubeUrl) {
+              <a
+                class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white transition hover:bg-white/25"
+                [attr.href]="activeProject().youtubeUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch project on YouTube"
+              >
+                <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.6 12 4.6 12 4.6s-5.8 0-7.5.5A3 3 0 0 0 2.4 7.2 31.4 31.4 0 0 0 2 12a31.4 31.4 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.7.5 7.5.5 7.5.5s5.8 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 22 12a31.4 31.4 0 0 0-.4-4.8zM9.8 15.4V8.6l6 3.4-6 3.4z"
+                  />
+                </svg>
+                Watch on YouTube
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6 p-6">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Stack</p>
+          <div class="mt-2 flex flex-wrap gap-2">
+            @for (item of activeProject().stack; track item) {
+              <span
+                class="rounded-full border border-[var(--brand-200)] bg-white px-3 py-1 text-xs text-slate-600"
+              >
+                {{ item }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-dashed border-[var(--brand-200)] bg-[var(--brand-50)] p-5">
+          <p class="whitespace-pre-line text-sm leading-6 text-slate-600">
+            {{ activeProject().details }}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,141 @@
+<section class="space-y-6">
+  <div class="flex items-center gap-3">
+    <h3 class="text-2xl font-semibold text-slate-900">Experience</h3>
+    <span class="h-1 w-10 rounded-full bg-[var(--brand-600)]"></span>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-2">
+    <button
+      type="button"
+      (click)="setTrack('Work')"
+      [class]="
+        activeTrack() === 'Work'
+          ? 'rounded-full bg-[var(--brand-600)] px-4 py-2 text-sm font-semibold text-white shadow-sm transition'
+          : 'rounded-full border border-[var(--brand-200)] px-4 py-2 text-sm font-semibold text-[var(--brand-700)] transition hover:border-[var(--brand-300)]'
+      "
+    >
+      Work
+    </button>
+    <button
+      type="button"
+      (click)="setTrack('Education')"
+      [class]="
+        activeTrack() === 'Education'
+          ? 'rounded-full bg-[var(--brand-600)] px-4 py-2 text-sm font-semibold text-white shadow-sm transition'
+          : 'rounded-full border border-[var(--brand-200)] px-4 py-2 text-sm font-semibold text-[var(--brand-700)] transition hover:border-[var(--brand-300)]'
+      "
+    >
+      Education
+    </button>
+  </div>
+
+  <div
+    class="rounded-3xl border border-[var(--brand-200)] bg-gradient-to-br from-white via-white to-[var(--brand-50)] p-6 shadow-sm"
+  >
+    <div class="relative">
+      <span
+        class="pointer-events-none absolute bottom-0 left-1/2 top-0 hidden w-0.5 -translate-x-1/2 bg-[var(--brand-400)] md:block"
+      ></span>
+
+      @if (activeTrack() === 'Work') {
+        <div class="space-y-8 md:space-y-10">
+          @for (item of workExperience; track item.title; let i = $index) {
+            <div class="relative md:grid md:grid-cols-[1fr_40px_1fr] md:items-start">
+              <div class="hidden md:block">
+                @if (i % 2 === 0) {
+                  <article class="text-right">
+                    <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                    <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                      @for (detail of item.details; track detail) {
+                        <li>{{ detail }}</li>
+                      }
+                    </ul>
+                  </article>
+                }
+              </div>
+              <div class="relative hidden md:flex md:flex-col md:items-center">
+                <span
+                  class="mt-2 h-4 w-4 rounded-full bg-[var(--brand-600)] shadow-[0_0_0_6px_rgba(255,255,255,0.9)]"
+                ></span>
+                <span class="mt-2 w-0.5 flex-1 bg-[var(--brand-300)]"></span>
+              </div>
+              <div class="hidden md:block">
+                @if (i % 2 !== 0) {
+                  <article class="text-left">
+                    <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                    <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                      @for (detail of item.details; track detail) {
+                        <li>{{ detail }}</li>
+                      }
+                    </ul>
+                  </article>
+                }
+              </div>
+
+              <article class="md:hidden">
+                <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                  @for (detail of item.details; track detail) {
+                    <li>{{ detail }}</li>
+                  }
+                </ul>
+              </article>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="space-y-8 md:space-y-10">
+          @for (item of educationExperience; track item.title; let i = $index) {
+            <div class="relative md:grid md:grid-cols-[1fr_40px_1fr] md:items-start">
+              <div class="hidden md:block">
+                @if (i % 2 === 0) {
+                  <article class="text-right">
+                    <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                    <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                      @for (detail of item.details; track detail) {
+                        <li>{{ detail }}</li>
+                      }
+                    </ul>
+                  </article>
+                }
+              </div>
+              <div class="relative hidden md:flex md:flex-col md:items-center">
+                <span
+                  class="mt-2 h-4 w-4 rounded-full bg-[var(--brand-600)] shadow-[0_0_0_6px_rgba(255,255,255,0.9)]"
+                ></span>
+                <span class="mt-2 w-0.5 flex-1 bg-[var(--brand-300)]"></span>
+              </div>
+              <div class="hidden md:block">
+                @if (i % 2 !== 0) {
+                  <article class="text-left">
+                    <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                    <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                    <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                      @for (detail of item.details; track detail) {
+                        <li>{{ detail }}</li>
+                      }
+                    </ul>
+                  </article>
+                }
+              </div>
+
+              <article class="md:hidden">
+                <h4 class="text-lg font-semibold text-slate-900">{{ item.title }}</h4>
+                <p class="text-sm font-semibold text-[var(--brand-700)]">{{ item.period }}</p>
+                <ul class="mt-2 space-y-1 text-sm text-slate-600">
+                  @for (detail of item.details; track detail) {
+                    <li>{{ detail }}</li>
+                  }
+                </ul>
+              </article>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

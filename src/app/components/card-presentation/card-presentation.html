@@ -1,0 +1,100 @@
+<main
+  class="min-h-screen bg-linear-to-br from-[var(--brand-700)] via-[var(--brand-600)] to-[var(--brand-100)]"
+>
+  <div class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-3 py-6 lg:flex-row">
+    <div class="lg:sticky lg:top-6 lg:w-96 lg:self-start">
+      <app-profile-card></app-profile-card>
+    </div>
+
+    <section
+      class="flex min-h-[calc(100vh-3rem)] flex-1 flex-col rounded-3xl border border-[var(--brand-200)] bg-white/90 shadow-sm"
+    >
+      <app-portfolio-nav
+        [active]="activeSection()"
+        (activeChange)="activeSection.set($event)"
+      ></app-portfolio-nav>
+      <div class="flex-1 overflow-y-auto border-t border-slate-200 p-5 md:p-6">
+        <div class="space-y-8">
+          @if (activeSection() === 'About') {
+          <app-about-section></app-about-section>
+          } @else if (activeSection() === 'Skills') {
+          <app-skills-section></app-skills-section>
+          } @else if (activeSection() === 'Experience') {
+          <app-experience-section></app-experience-section>
+          } @else if (activeSection() === 'Resume') {
+          <section class="space-y-4">
+            <h3 class="text-2xl font-semibold text-slate-900">Resume</h3>
+            <div class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-5">
+              <p class="text-sm text-slate-600">
+                Add your education, experience, and certifications here.
+              </p>
+            </div>
+          </section>
+          } @else if (activeSection() === 'Projects') {
+            <app-projects></app-projects>
+          } @else if (activeSection() === 'Diplomas') {
+            <app-diplomas-section></app-diplomas-section>
+          } @else if (activeSection() === 'Blog') {
+          <section class="space-y-4">
+            <h3 class="text-2xl font-semibold text-slate-900">Blog</h3>
+            <div class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-5">
+              <p class="text-sm text-slate-600">Latest articles will appear here.</p>
+            </div>
+          </section>
+          } @else if (activeSection() === 'Honor Society') {
+            <section class="space-y-4">
+              <h3 class="text-2xl font-semibold text-slate-900">Honor Society</h3>
+              <div class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-5">
+              <img
+                src="honorsociety.jpeg"
+                alt="Honor Society"
+                class="h-48 w-full rounded-3xl object-cover md:h-56"
+                loading="eager"
+                fetchpriority="high"
+              />
+                <div class="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                  <p>
+                    Tau Beta Pi is the only engineering honor society representing the entire
+                    engineering profession. It is the nation’s second-oldest honor society, founded
+                  at Lehigh University in 1885 to recognize distinguished scholarship and
+                  exemplary character in engineering.
+                </p>
+                <p>
+                  Today there are collegiate chapters at 255 US colleges and universities, 50
+                  active alumni chapters in 16 districts, and a total initiated membership of
+                  632,423.
+                  <a
+                    class="ml-1 font-semibold text-[var(--brand-600)] underline-offset-4 transition hover:underline"
+                    target="_blank"
+                    href="https://www.tbp.org/home.cfm"
+                  >
+                    Click here for more information
+                  </a>
+                </p>
+                <p>
+                  Founded in 1974, the Florida Gamma chapter was the third chapter established in
+                  Florida. Every engineering major at USF is welcome to join based on exemplary
+                  character and distinguished scholarship. Only the top 1/8th and 1/5th of the
+                  undergraduate class can join the society based on GPA.
+                </p>
+                  <p class="rounded-xl border border-[var(--brand-200)] bg-[var(--brand-50)] p-3">
+                    “The creed of Tau Beta Pi, adopted in 1991, is Integrity and Excellence in
+                    Engineering.”
+                  </p>
+                </div>
+              </div>
+            </section>
+          } @else {
+            <section class="space-y-4">
+              <h3 class="text-2xl font-semibold text-slate-900">Contact</h3>
+              <div class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-5">
+                <p class="text-sm text-slate-600">Email: german@example.com</p>
+                <p class="text-sm text-slate-600">Phone: +52 55 1234 5678</p>
+              </div>
+            </section>
+          }
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

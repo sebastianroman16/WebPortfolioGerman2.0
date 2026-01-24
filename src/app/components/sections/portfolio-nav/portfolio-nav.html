@@ -1,0 +1,25 @@
+<header class="flex flex-wrap items-center justify-between gap-4 rounded-t-3xl bg-[var(--brand-600)] px-6 py-5 md:px-8">
+  <div>
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-200)]">
+      Portfolio
+    </p>
+    <h2 class="text-lg font-semibold text-white">Overview</h2>
+  </div>
+
+  <nav class="flex max-w-full items-center gap-2 overflow-x-auto rounded-full bg-white/15 p-1 text-sm">
+    @for (link of links; track link) {
+      <button
+        type="button"
+        (click)="setActive(link)"
+        [attr.aria-current]="active === link ? 'page' : null"
+        [class]="
+          link === active
+            ? 'rounded-full bg-white px-4 py-2 font-semibold text-[var(--brand-700)] shadow-sm transition duration-200 ease-out'
+            : 'rounded-full px-4 py-2 text-white/80 transition duration-200 ease-out hover:text-white hover:-translate-y-0.5'
+        "
+      >
+        {{ link }}
+      </button>
+    }
+  </nav>
+</header>

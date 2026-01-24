@@ -1,0 +1,75 @@
+<article
+  class="rounded-2xl border border-[var(--brand-200)] bg-white/85 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+>
+  <div class="flex items-start gap-4">
+    <div class="rounded-2xl bg-[var(--brand-100)] p-3 text-[var(--brand-600)]">
+      @switch (icon) {
+        @case ('frontend') {
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            class="h-6 w-6"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8 3 12l4 4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="m17 8 4 4-4 4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20 14 4" />
+          </svg>
+        }
+        @case ('backend') {
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            class="h-6 w-6"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 17h16" />
+            <circle cx="7" cy="7" r="1" />
+            <circle cx="7" cy="12" r="1" />
+            <circle cx="7" cy="17" r="1" />
+          </svg>
+        }
+        @case ('mobile') {
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            class="h-6 w-6"
+          >
+            <rect x="7" y="3" width="10" height="18" rx="2" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 18h2" />
+          </svg>
+        }
+        @case ('design') {
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            class="h-6 w-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4 14 6-6 6 6M4 14l6 6 6-6"
+            />
+            <circle cx="12" cy="8" r="2" />
+          </svg>
+        }
+      }
+    </div>
+    <div>
+      <h4 class="text-base font-semibold text-slate-900">{{ title }}</h4>
+      <p class="mt-2 text-sm text-slate-600">{{ description }}</p>
+    </div>
+  </div>
+</article>

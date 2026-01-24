@@ -1,0 +1,29 @@
+<section class="space-y-6">
+  <div class="flex items-center gap-3">
+    <h3 class="text-2xl font-semibold text-slate-900">Diplomas</h3>
+    <span class="h-1 w-10 rounded-full bg-[var(--brand-600)]"></span>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-2">
+    @for (diploma of diplomas; track diploma.file) {
+      <div class="rounded-2xl border border-[var(--brand-200)] bg-white/90 p-4 shadow-sm">
+        <p class="text-sm font-semibold text-slate-900">{{ diploma.title }}</p>
+        <div class="mt-3 overflow-hidden rounded-xl border border-[var(--brand-200)]">
+          <iframe
+            class="h-[520px] w-full"
+            [src]="diploma.safeUrl"
+            title="{{ diploma.title }}"
+          ></iframe>
+        </div>
+        <a
+          class="mt-3 inline-flex items-center text-sm font-semibold text-[var(--brand-700)] underline-offset-4 hover:underline"
+          [attr.href]="diploma.file"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open {{ diploma.title }} in new tab
+        </a>
+      </div>
+    }
+  </div>
+</section>
