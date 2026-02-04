@@ -99,8 +99,8 @@ export class ProjectsComponent {
       summary: '',
       details:
         'This project involved the development of a fully automated continuous pick-and-place routine for an Epson T3-401s SCARA robot using the Epson RC+ 7.5 programming environment. The system was designed to perform repeated part transfers between multiple pick and placement locations with consistent timing, safe motion paths, and reliable gripper operation. All critical positions—including pick points, place points, and elevated high-approach positions—were manually taught and verified to ensure proper alignment, vertical clearance, and collision-free motion. The program was structured as a continuous loop, using controlled approach, pick, transfer, and retract motions to maintain smooth and predictable operation. Gripper control was integrated into the motion sequence through digital outputs, with dwell times included at each pick and place to ensure secure gripping and reliable release. The routine was first validated in RC+ simulation mode, where real-time motion and clearance were verified, and then successfully deployed to the physical robot. The system demonstrated stable, repeatable performance over extended operating cycles.',
-      stack: [''],
-      year: '2025',
+      stack: ['Robotics', 'Epson RC+', 'SCARA'],
+      year: '2026',
       youtubeUrl: 'https://youtu.be/qjecIE8D5fU',
     },
   ];
